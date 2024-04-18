@@ -10,6 +10,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+from datetime import datetime
 
 
 class HBNBCommand(cmd.Cmd):
@@ -157,6 +158,10 @@ class HBNBCommand(cmd.Cmd):
 
             # Add the key-value pair to the params dictionary
             params[key] = value
+
+        # Ensure 'updated_at' is present and initialize with current datetime
+        if 'updated_at' not in params:
+            params['updated_at'] = datetime.now()
 
         # Create a new instance of the class with the extracted parameters
         new_instance = HBNBCommand.classes[class_name](**params)
