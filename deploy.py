@@ -1,11 +1,11 @@
-from fabric import Connection, task
+#!/usr/bin/python3
+from fabric import Connection
 
 # Define the host
-host = 'username@100.25.16.64'
+host = 'ubuntu@100.25.16.64'
 
 # Define the task to deploy your web static files
-@task
-def deploy_web_static(c):
+def deploy_web_static():
     with Connection(host) as conn:
         # Add your deployment commands here
         conn.run('echo "Deploying web static files..."')
