@@ -5,8 +5,10 @@ Starts a Flask web application:
 - Routes:
   /: display “Hello HBNB!”
   /hbnb: display “HBNB”
-  /c/<text>: display “C ” followed by the value of the text variable (replace underscore _ symbols with a space)
-  /python/(<text>): display “Python ” followed by the value of the text variable (replace underscore _ symbols with a space)
+  /c/<text>: display “C ” followed by the value of the text variable
+  (replace underscore _ symbols with a space)
+  /python/(<text>): display “Python ” followed by the value of the text
+  variable (replace underscore _ symbols with a space)
     - Default value of text is “is cool”
   /number/<n>: display “n is a number” only if n is an integer
   /number_template/<n>: display a HTML page only if n is an integer
@@ -31,14 +33,16 @@ def hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
-    """Displays 'C ' followed by the value of the text variable (replace underscores with spaces)"""
+    """Displays 'C ' followed by the value of the text variable (replace
+    underscores with spaces)"""
     return "C " + text.replace("_", " ")
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def python_text(text):
-    """Displays 'Python ' followed by the value of the text variable (replace underscores with spaces)"""
+    """Displays 'Python ' followed by the value of the text variable (replace
+    underscores with spaces)"""
     return "Python " + text.replace("_", " ")
 
 
@@ -50,7 +54,8 @@ def number(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
-    """Displays a HTML page only if n is an integer with H1 tag: 'Number: n'"""
+    """Displays a HTML page only if n is an integer with H1 tag:
+        'Number: n'"""
     return render_template('5-number.html', number=n)
 
 

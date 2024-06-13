@@ -5,7 +5,7 @@ Starts a Flask web application:
 - Routes:
   /states_list: display a HTML page: (inside the tag BODY)
     - H1 tag: “States”
-    - UL tag: with the list of all State objects present in DBStorage sorted 
+    - UL tag: with the list of all State objects present in DBStorage sorted
     by name (A->Z)
         - LI tag: description of one State: <state.id>: <B><state.name></B>
   /cities_by_states: display a HTML page: (inside the tag BODY)
@@ -50,4 +50,3 @@ def teardown_db(exception):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-

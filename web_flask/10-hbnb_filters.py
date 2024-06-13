@@ -17,7 +17,7 @@ Starts a Flask web application:
             - LI tag: description of one City: <city.id>: <B><city.name></B>
         - UL tag with the list of all Amenity objects present in DBStorage
         sorted by name (A->Z)
-            - LI tag: description of one Amenity: <amenity.id>: 
+            - LI tag: description of one Amenity: <amenity.id>:
             <B><amenity.name></B>
 """
 from flask import Flask, render_template
@@ -35,7 +35,8 @@ def hbnb_filters():
     amenities = storage.all(Amenity).values()
     sorted_states = sorted(states, key=lambda state: state.name)
     sorted_amenities = sorted(amenities, key=lambda amenity: amenity.name)
-    return render_template('10-hbnb_filters.html',
+    return render_template(
+            '10-hbnb_filters.html',
             states=sorted_states,
             amenities=sorted_amenities)
 
